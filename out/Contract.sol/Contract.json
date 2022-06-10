@@ -1,0 +1,56 @@
+{
+  "abi": [],
+  "bytecode": {
+    "object": "0x6080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfea264697066735822122072714f27084862f3542ca872664c2e3b243a7366a577ec40ec54c3c7145557d664736f6c634300080a0033",
+    "sourceMap": "64:20:6:-:0;;;;;;;;;;;;;;;;;;;",
+    "linkReferences": {}
+  },
+  "deployedBytecode": {
+    "object": "0x6080604052600080fdfea264697066735822122072714f27084862f3542ca872664c2e3b243a7366a577ec40ec54c3c7145557d664736f6c634300080a0033",
+    "sourceMap": "64:20:6:-:0;;;;;",
+    "linkReferences": {}
+  },
+  "ast": {
+    "absolutePath": "/home/iwura/Documents/myfunder/src/Contract.sol",
+    "exportedSymbols": {
+      "Contract": [
+        20714
+      ]
+    },
+    "id": 20715,
+    "license": "UNLICENSED",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 20713,
+        "literals": [
+          "solidity",
+          "0.8",
+          ".10"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "39:23:6"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "Contract",
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "fullyImplemented": true,
+        "id": 20714,
+        "linearizedBaseContracts": [
+          20714
+        ],
+        "name": "Contract",
+        "nameLocation": "73:8:6",
+        "nodeType": "ContractDefinition",
+        "nodes": [],
+        "scope": 20715,
+        "src": "64:20:6",
+        "usedErrors": []
+      }
+    ],
+    "src": "39:46:6"
+  }
+}
