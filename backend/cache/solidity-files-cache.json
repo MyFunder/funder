@@ -1,0 +1,147 @@
+{
+  "_format": "ethers-rs-sol-cache-3",
+  "paths": {
+    "artifacts": "out",
+    "sources": "src",
+    "tests": "test",
+    "libraries": [
+      "lib"
+    ]
+  },
+  "files": {
+    "C:\\Users\\great\\Desktop\\Web3Bridge BlockChain Dev\\Funder-CrowdFundMe\\funder\\backend\\src\\Contract.sol": {
+      "lastModificationDate": 1654901262413,
+      "contentHash": "2665ec440a1914fc755752ebbcfa280b",
+      "sourceName": "src\\Contract.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "none"
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ]
+            }
+          },
+          "evmVersion": "london"
+        }
+      },
+      "imports": [],
+      "versionRequirement": "=0.8.10",
+      "artifacts": {}
+    },
+    "C:\\Users\\great\\Desktop\\Web3Bridge BlockChain Dev\\Funder-CrowdFundMe\\funder\\backend\\src\\funder.sol": {
+      "lastModificationDate": 1654901262417,
+      "contentHash": "33bd51294b4acbf4b811bfe1602faf23",
+      "sourceName": "src\\funder.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "none"
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ]
+            }
+          },
+          "evmVersion": "london"
+        }
+      },
+      "imports": [],
+      "versionRequirement": "=0.8.10",
+      "artifacts": {}
+    },
+    "C:\\Users\\great\\Desktop\\Web3Bridge BlockChain Dev\\Funder-CrowdFundMe\\funder\\backend\\src\\test\\Contract.t.sol": {
+      "lastModificationDate": 1654901262421,
+      "contentHash": "9ab032b424f9cf2f93143bdb92591b45",
+      "sourceName": "src\\test\\Contract.t.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "none"
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ]
+            }
+          },
+          "evmVersion": "london"
+        }
+      },
+      "imports": [],
+      "versionRequirement": "=0.8.10",
+      "artifacts": {}
+    },
+    "C:\\Users\\great\\Desktop\\Web3Bridge BlockChain Dev\\Funder-CrowdFundMe\\funder\\backend\\src\\test\\funder.t.sol": {
+      "lastModificationDate": 1654901262423,
+      "contentHash": "c4389e99fdbdc15eb0ec9383bb175287",
+      "sourceName": "src\\test\\funder.t.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "none"
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ]
+            }
+          },
+          "evmVersion": "london"
+        }
+      },
+      "imports": [
+        "src\\funder.sol"
+      ],
+      "versionRequirement": "=0.8.10",
+      "artifacts": {}
+    }
+  }
+}
