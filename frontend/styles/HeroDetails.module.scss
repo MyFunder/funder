@@ -1,0 +1,77 @@
+@import "../styles/abstracts/variable.module.scss";
+
+.container {
+  margin: auto;
+  padding: 2rem;
+  max-width: 90%;
+}
+
+.section {
+  margin-bottom: 20rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8rem;
+
+  &:last-child {
+    margin-bottom: 4rem;
+  }
+
+  &__img {
+    flex: 50%;
+    border-radius: 10px;
+
+    -webkit-filter: drop-shadow(5px 5px 25px rgba(145, 126, 255, 0.5));
+    filter: drop-shadow(5px 5px 25px rgba(145, 126, 255, 0.5));
+  
+  }
+
+
+  &__imgRight {
+    text-align: right;
+  }
+
+  &__txt {
+    flex: 50%;
+  }
+
+  &__right {
+    text-align: right;
+  }
+
+  &__left {
+    text-align: left;
+  }
+
+  &__heading4 {
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  &__para {
+    font-size: 1.4rem;
+    color: rgb(134, 134, 134);
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .container {
+    max-width: 90%;
+  }
+  .section {
+    top: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 4rem;
+
+    &__right,
+    &__left,
+    &__img {
+      text-align: center;
+      // text-align: left;
+    }
+  }
+}

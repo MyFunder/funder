@@ -1,0 +1,19 @@
+.hero {
+  margin: auto;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  //   padding: 2rem;
+  max-width: 90%;
+  height: 60rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+  align-items: center;
+
+  &__search {
+    padding: 2rem;
+    height: 30rem;
+    background: rgba(42, 37, 101, 0.4);
+    border-radius: 5px;
+  }
+}
