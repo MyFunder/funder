@@ -11,8 +11,8 @@ export default function Home() {
         <meta name="Funder" content="initial-scale=1" width="device-width" />
         {/* <link rel="icon" href="/favicon.ico" /> */}
       </Head>
-      {/* <Hero /> */}
-      <HeroDonation />
+      <Hero />
+      {/* <HeroDonation /> */}
     </div>
   );
 }
