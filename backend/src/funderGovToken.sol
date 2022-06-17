@@ -4,7 +4,6 @@ pragma solidity 0.8.10;
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "@openzeppelin/contracts/utils/Context.sol";
 import "@openzeppelin/contracts/interfaces/IERC20Metadata.sol";
-import "./voting.sol";
 
 
 contract FunderGovToken is Context, IERC20, IERC20Metadata{
@@ -12,7 +11,7 @@ contract FunderGovToken is Context, IERC20, IERC20Metadata{
     uint256 private _totalSupply;
     string private _name;
     string private _symbol; 
-    Voting vote;
+    
 
 
   /*******************MAPPING************************/
@@ -34,11 +33,9 @@ contract FunderGovToken is Context, IERC20, IERC20Metadata{
      * All two of these values are immutable: they can only be set once during
      * construction.
      */
-    constructor(string memory name_, string memory symbol_, Voting _vote) {
-        vote = _vote;
+    constructor(string memory name_, string memory symbol_) {
         _name = name_;
         _symbol = symbol_;
-        _mint(msg.sender, 1000000e18);
     }
 
 
@@ -93,17 +90,7 @@ contract FunderGovToken is Context, IERC20, IERC20Metadata{
         return _balances[account];
     }
 
-  function lockToken(uint _amount, address castVote) public {
-      tokenOwners[msg.sender][castVote]+= _amount;
-      lockedToken[msg.sender] += _amount;
-  }
-  function unLockToken(address castVote) external{
-      require(msg.sender == address(vote), "msg.sender must be the voting contract");
-      uint256 value =  tokenOwners[msg.sender][castVote];
-      lockedToken[msg.sender] -= value;
-      tokenOwners[msg.sender][castVote]-= value;
-
-  }
+  
 
  
 

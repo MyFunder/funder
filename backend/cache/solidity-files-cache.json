@@ -421,8 +421,8 @@
       "artifacts": {}
     },
     "/home/iwura/Desktop/funder/backend/src/funder.sol": {
-      "lastModificationDate": 1655324906668,
-      "contentHash": "12942b77dfa1089f7d74c73edeb336c1",
+      "lastModificationDate": 1655390196705,
+      "contentHash": "b1a1e500ec23bd970aeeb9390255ec96",
       "sourceName": "src/funder.sol",
       "solcConfig": {
         "settings": {
@@ -458,8 +458,8 @@
       }
     },
     "/home/iwura/Desktop/funder/backend/src/funderGovToken.sol": {
-      "lastModificationDate": 1655324771262,
-      "contentHash": "0c94e23980f9f6822425ff4541088c54",
+      "lastModificationDate": 1655388157373,
+      "contentHash": "e7cc294876bcca900eb0ba42038140c5",
       "sourceName": "src/funderGovToken.sol",
       "solcConfig": {
         "settings": {
@@ -490,17 +490,10 @@
         "lib/openzeppelin-contracts/contracts/interfaces/IERC20Metadata.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Metadata.sol",
-        "lib/openzeppelin-contracts/contracts/utils/Context.sol",
-        "src/funder.sol",
-        "src/funderGovToken.sol",
-        "src/voting.sol"
+        "lib/openzeppelin-contracts/contracts/utils/Context.sol"
       ],
       "versionRequirement": "=0.8.10",
-      "artifacts": {
-        "FunderGovToken": {
-          "0.8.10+commit.fc410830.Linux.gcc": "funderGovToken.sol/FunderGovToken.json"
-        }
-      }
+      "artifacts": {}
     },
     "/home/iwura/Desktop/funder/backend/src/test/Contract.t.sol": {
       "lastModificationDate": 1655322956940,
@@ -540,8 +533,8 @@
       }
     },
     "/home/iwura/Desktop/funder/backend/src/test/funder.t.sol": {
-      "lastModificationDate": 1655325004331,
-      "contentHash": "f42d0d710dc34e49ea8123451cb6707c",
+      "lastModificationDate": 1655382030760,
+      "contentHash": "7923ff09e7239fb3a3f131c60e5f0871",
       "sourceName": "src/test/funder.t.sol",
       "solcConfig": {
         "settings": {
@@ -575,7 +568,13 @@
         "lib/forge-std/src/Vm.sol",
         "lib/forge-std/src/console.sol",
         "lib/forge-std/src/console2.sol",
-        "src/funder.sol"
+        "lib/openzeppelin-contracts/contracts/interfaces/IERC20Metadata.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Metadata.sol",
+        "lib/openzeppelin-contracts/contracts/utils/Context.sol",
+        "src/funder.sol",
+        "src/funderGovToken.sol",
+        "src/voting.sol"
       ],
       "versionRequirement": "=0.8.10",
       "artifacts": {
@@ -585,8 +584,8 @@
       }
     },
     "/home/iwura/Desktop/funder/backend/src/voting.sol": {
-      "lastModificationDate": 1655324803964,
-      "contentHash": "1d93bb087f06cd3c5eb3d55d5ca7fbba",
+      "lastModificationDate": 1655388599393,
+      "contentHash": "1c5c9f4ee5c779600cdc214b36a2bd77",
       "sourceName": "src/voting.sol",
       "solcConfig": {
         "settings": {
@@ -619,8 +618,7 @@
         "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Metadata.sol",
         "lib/openzeppelin-contracts/contracts/utils/Context.sol",
         "src/funder.sol",
-        "src/funderGovToken.sol",
-        "src/voting.sol"
+        "src/funderGovToken.sol"
       ],
       "versionRequirement": "=0.8.10",
       "artifacts": {
