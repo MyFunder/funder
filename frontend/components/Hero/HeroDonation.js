@@ -1,10 +1,16 @@
 import React from "react";
+import { useRouter } from "next/router";
+
 import styles from "./HeroDonation.module.scss";
-import Image from "next/image";
-import doctor from "../../public/doctor.png";
 import btn from "../../styles/button.module.scss";
 
 function HeroDonation() {
+  const router = useRouter();
+
+  const showDetailHandler = () => {
+    router.push("/" + props.id);
+  };
+
   return (
     <div className={styles.container}>
       <h2 className={styles.heading}>
@@ -13,12 +19,7 @@ function HeroDonation() {
       <div className={styles.card}>
         <div className={styles.card__container}>
           <div className={styles.card__image}>
-            <Image
-              src={doctor}
-              height={200}
-              layout="responsive"
-              alt="school fees"
-            />
+            <img src="./doctor.png" alt="school fees" />
           </div>
           <div className={styles.card__content}>
             <div className={styles.card__amount}>
@@ -39,6 +40,7 @@ function HeroDonation() {
             <div>
               <button
                 className={`${btn.btn} ${btn.btn__animated} ${btn.btn__primary} ${styles.card__btn}`}
+                onClick={showDetailHandler}
               >
                 Donate Now
               </button>
@@ -48,12 +50,7 @@ function HeroDonation() {
         {/* ////////////////// */}
         <div className={styles.card__container}>
           <div className={styles.card__image}>
-            <Image
-              src={doctor}
-              height={200}
-              layout="responsive"
-              alt="school fees"
-            />
+            <img src="./doctor.png" alt="school fees" />
           </div>
           <div className={styles.card__content}>
             <div className={styles.card__amount}>
@@ -83,12 +80,7 @@ function HeroDonation() {
         {/* //////////////////////// */}
         <div className={styles.card__container}>
           <div className={styles.card__image}>
-            <Image
-              src={doctor}
-              height={200}
-              layout="responsive"
-              alt="school fees"
-            />
+            <img src="./doctor.png" alt="school fees" />
           </div>
           <div className={styles.card__content}>
             <div className={styles.card__amount}>

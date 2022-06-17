@@ -5,8 +5,7 @@ function Footer() {
   return (
     <div className={styles.container}>
       <div className={styles.main}>
-        <p className={styles.copy}>Copyrights 2022</p>
-        <h4 className={styles.heading}>Tuks</h4>
+        <h4 className={styles.heading}>Funder</h4>
       </div>
       <div className={styles.nav}>
         <p className={styles.nav__para}>Forum</p>
@@ -14,6 +13,8 @@ function Footer() {
         <p className={styles.nav__para}>Developers</p>
         <p className={styles.nav__para}>Docs</p>
       </div>
+
+      <p className={styles.copy}>Copyrights 2022</p>
     </div>
   );
 }

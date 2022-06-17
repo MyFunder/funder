@@ -7,12 +7,8 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Tuks</title>
-        <meta
-          name="Tuks - Ticketing Dapp"
-          content="initial-scale=1"
-          width="device-width"
-        />
+        <title>Funder</title>
+        <meta name="Funder" content="initial-scale=1" width="device-width" />
         {/* <link rel="icon" href="/favicon.ico" /> */}
       </Head>
       {/* <Hero /> */}
