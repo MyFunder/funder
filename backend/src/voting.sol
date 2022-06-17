@@ -31,6 +31,19 @@ contract Voting is FunderGovToken{
 
 
 
+     /*******************MODIFIER************************/  
+      modifier checkUnlockToken(address owner, uint amount){
+      uint valueLocked = lockedToken[msg.sender];
+      uint bal = balanceOf(owner);
+      require(valueLocked + amount < bal, "you don't have token to vote");
+
+      _;
+  }
+
+
+
+
+
      /*******************CONSTRUCTOR************************/  
      constructor(uint _aYesVote, Funder _funder) FunderGovToken("MYFunder","MYF"){
         aYesVote = _aYesVote;
@@ -41,15 +54,15 @@ contract Voting is FunderGovToken{
      }
 
      /******************* Goven_ance FUNCTIONS************************/  
-     function voteProposal(address castVote, uint amount) external {
-         require(balanceOf(msg.sender) >= amount, "insufficient balance");
+         
+     function voteProposal(address castVote, uint amount) external checkUnlockToken(msg.sender, amount) {
          require(aYesVote % amount == 0, "10 tokens is 1 yes");
          assert(!(govVote[msg.sender][castVote]));
          uint noOfVote = amount / aYesVote;
          lockToken(amount, castVote);
          govVoteCount[msg.sender][castVote] += noOfVote;
          if(govVoteCount[msg.sender][castVote] >= MINIMUMAPPROVAL){
-            funder.setStatus(castVote);       
+            funder.setStatus(castVote);   //this is not working yet    
             
          }
          emit Voted(msg.sender, castVote);
@@ -74,6 +87,6 @@ contract Voting is FunderGovToken{
           emit unlock(msg.sender, result);
       
   }
-
+ 
 
 }
