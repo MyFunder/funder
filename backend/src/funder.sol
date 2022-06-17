@@ -3,22 +3,23 @@ pragma solidity 0.8.10;
 
 
 
+
 /*
   * @title Funder logic for raising funds .
   * @notice  web3 version of crowdFundMe.
   */
 
-contract Funder {
+contract Funder{
 
   
      /*******************sTATE VARIABLES************************/
-     address govToken;
+
      address govVoting;
      
 
 
   /*******************STRUCT************************/
-    struct FundProps{
+    struct FundProps {
         string Purpose;
         uint256 amount;
         uint256 amountGenerared;
@@ -42,17 +43,7 @@ contract Funder {
 
 
      /*******************CONSTRUCTOR************************/  
-     constructor(address _token, address _govVoting){
-        govToken = _token;
-        govVoting = _govVoting;
-        
-     }
-     
-   
-
-
-
-     
+       
 
      /*******************FUNCTIONS************************/  
      /**
@@ -69,7 +60,6 @@ contract Funder {
     }
 
     function setStatus(address beneficiary) external returns(bool) {
-      require(msg.sender == govVoting);
         FundProps storage FP = fundsprosps[beneficiary];
         FP.status = true;
         return FP.status;
@@ -86,7 +76,7 @@ contract Funder {
         FundProps storage FP = fundsprosps[beneficiary];
         require(msg.value != 0, "you can't transfer 0 value");
         require(FP.status == true, "this donation is no longer available");
-        require(FP.amountGenerared <= FP.amount, "target reachead for this fund");
+        require(FP.amountGenerared < FP.amount, "target reachead for this fund");
         FP.amountGenerared += msg.value;
         investors[msg.sender]+= msg.value;
         emit donate(msg.sender, beneficiary, msg.value); 
