@@ -91,6 +91,15 @@
     }
   }
 
+  &__blue {
+    background-color: $color-primary;
+
+    &:hover {
+      color: $color-primary;
+      background-color: $color-white;
+    }
+  }
+
   &::after {
     content: "";
     display: inline-block;

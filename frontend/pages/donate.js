@@ -1,12 +1,38 @@
-import React from 'react'
-import HeroDonation from '../components/Hero/HeroDonation'
+import { MongoClient } from "mongodb";
+import DonateList from "../components/Donate/DonateList";
 
-function Donate() {
+function Donate(props) {
   return (
-	<div>
-		<HeroDonation />
-	</div>
-  )
+    <div>
+      <DonateList donateData={props.donateData} />
+    </div>
+  );
 }
 
-export default Donate
+export async function getStaticProps() {
+  const client = await MongoClient.connect(process.env.MongoURi);
+
+  const db = client.db();
+
+  const donationCollection = db.collection("donations");
+
+  const donateData = await donationCollection.find().toArray();
+
+  client.close();
+
+  return {
+    props: {
+      donateData: donateData.map((donate) => ({
+        name: donate.name,
+        id: donate._id.toString(),
+        image: donate.image,
+        desc: donate.desc,
+        period: donate.period,
+        amount: donate.amount,
+      })),
+    },
+    revalidate: 1,
+  };
+}
+
+export default Donate;
