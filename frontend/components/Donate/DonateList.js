@@ -5,11 +5,13 @@ import styles from "./DonateList.module.scss";
 function DonateList(props) {
   return (
     <div className={styles.container}>
-      <h2 className={styles.heading}>
-        Donations <span>Ongoing</span>
-      </h2>
-
-      <ul className={styles.list}>
+      <div>
+        <h2 className={styles.heading}>
+          Donations <span>Ongoing</span>
+        </h2>
+      </div>
+      <div className={styles.list}>
+        {/* <div className={styles.list__detail}>  */}
         {props.donateData.map((donate) => (
           <Donations
             key={donate.id}
@@ -21,8 +23,9 @@ function DonateList(props) {
             amount={donate.amount}
           />
         ))}
-      </ul>
+      </div>
     </div>
+    //  </div>
   );
 }
 

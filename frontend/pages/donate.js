@@ -2,7 +2,7 @@ import { MongoClient } from "mongodb";
 import DonateList from "../components/Donate/DonateList";
 
 function Donate(props) {
-  const onClickDonate = async () => {};
+ 
   return (
     <div>
       <DonateList donateData={props.donateData} />

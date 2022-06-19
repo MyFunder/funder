@@ -5,11 +5,11 @@ import { Web3Context } from "../contexts/Web3Context";
 import { Contract, ethers } from "ethers";
 import { useRouter } from "next/router";
 
+
 function Create() {
   const { provider, connect, wallet } = useContext(Web3Context);
   const [submitting, setSubmitting] = useState(false);
   const [completed, setCompleted] = useState(false);
-  // console.log(wallet.address);
 
   const router = useRouter();
 
@@ -32,24 +32,24 @@ function Create() {
 
       setSubmitting(true);
 
-      // const signer = provider.getSigner();
-      // const FunderContractInstance = new Contract(
-      //   FunderAddr,
-      //   FunderAbi,
-      //   signer
-      // );
+      const signer = provider.getSigner();
+      const FunderContractInstance = new Contract(
+        FunderAddr,
+        FunderAbi,
+        signer
+      );
 
-      // const createDonation = await FunderContractInstance.requestFund(
-      //   data.name,
-      //   data.amount
-      // );
+      const createDonation = await FunderContractInstance.requestFund(
+        data.name,
+        data.amount
+      );
 
-      // const receipt = await createDonation.wait(1);
-      // // Get the eventsId
-      // const eventsId = receipt?.events[0].args[3].toString();
+      const receipt = await createDonation.wait(1);
+      // Get the eventsId
+      const eventsId = receipt?.events[0].args[3].toString();
       // push Id into the data
       let addAddr = {
-        id: "2",
+        id: eventsId,
         address: wallet.address,
       };
 

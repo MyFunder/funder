@@ -5,7 +5,7 @@ import {
   DEFAULT_CHAIN_ID,
   providerOptions,
 } from "../components/connector/Connectors";
-import { DEFAULT_CHAINS } from "../components/connector/Blockchain";
+import { DEFAULT_CHAINS } from "..//components/connector/Blockchain";
 
 export const Web3Context = createContext();
 

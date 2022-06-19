@@ -27,7 +27,7 @@ function Hero() {
           <button className={styles.hero__watchBtn}>Watch Video</button>
         </div>
       </div>
-      <HeroModal showModal={showModal} />
+      <HeroModal onClose={() => setShowModal(false)} showModal={showModal} />
     </div>
   );
 }

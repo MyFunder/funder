@@ -41,7 +41,10 @@ export default function Header() {
         )}
         <div className={styles.header__connect}>
           {!wallet ? (
-            <button onClick={connect} className={`${btn.btn} `}>
+            <button
+              onClick={connect}
+              className={`${btn.btn} ${btn.btn__white}`}
+            >
               Connect Wallet
             </button>
           ) : (

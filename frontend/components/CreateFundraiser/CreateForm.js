@@ -34,14 +34,14 @@ function CreateForm({ onClickCreate, submitting, completed }) {
           />
 
           <label className={styles.form__label} htmlFor="image">
-            Image
+            Image(url)
           </label>
           <input
             className={styles.form__input}
             required
             name="image"
             id="image"
-            type="text"
+            type="url"
           />
 
           <label className={styles.form__label} htmlFor="desc">
@@ -63,7 +63,7 @@ function CreateForm({ onClickCreate, submitting, completed }) {
             required
             name="period"
             id="period"
-            type="number"
+            type="date"
             min="1"
           />
 
