@@ -1,7 +1,6 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity 0.8.10;
-
-
+import "./governance.sol";
 
 
 /*
@@ -12,17 +11,15 @@ pragma solidity 0.8.10;
 contract Funder{
 
   
-     /*******************sTATE VARIABLES************************/
-
-     address govVoting;
-     
-
+     /*******************sTATE VARIABLES************************/     
+    Voting vote;
 
   /*******************STRUCT************************/
     struct FundProps {
         string Purpose;
         uint256 amount;
         uint256 amountGenerared;
+        uint time;
         bool status;
     }
 
@@ -43,6 +40,10 @@ contract Funder{
 
 
      /*******************CONSTRUCTOR************************/  
+
+     constructor(Voting _vote){
+         vote = _vote;
+     }
        
 
      /*******************FUNCTIONS************************/  
@@ -52,17 +53,20 @@ contract Funder{
      * @param _amount The amount needed to fulfill the purpose
      */
 
-   function requestFund(string memory _purpose, uint _amount) external {
+   function requestFund(string memory _purpose, uint _amount, uint _time) external {
         FundProps storage FP =  fundsprosps[msg.sender];
         FP.amount = _amount;
         FP.Purpose = _purpose;
+        FP.time = _time + 2 days;
         emit Request(msg.sender, _purpose, _amount);
     }
 
-    function setStatus(address beneficiary) external returns(bool) {
+    function setStatus(address beneficiary) external{
         FundProps storage FP = fundsprosps[beneficiary];
+        bool status = vote.getBeneficiaryVotingStatus(beneficiary);
+        require(status == true, "vote for this request is yet to pass");
         FP.status = true;
-        return FP.status;
+    
     }
 
     
@@ -75,7 +79,7 @@ contract Funder{
     function donateFunds(address beneficiary) external payable{
         FundProps storage FP = fundsprosps[beneficiary];
         require(msg.value != 0, "you can't transfer 0 value");
-        require(FP.status == true, "this donation is no longer available");
+        require(FP.status == true, "this proposal not available for donation");
         require(FP.amountGenerared < FP.amount, "target reachead for this fund");
         FP.amountGenerared += msg.value;
         investors[msg.sender]+= msg.value;
@@ -88,8 +92,8 @@ contract Funder{
 
     function withdrawAll() external payable{
         FundProps storage FP = fundsprosps[msg.sender];
-        require(FP.status == true, "No request for fund made");
-        require(FP.amountGenerared != 0, "NO funds raised for you");
+        require(FP.status == true, "proposal has not been approved");
+        require(FP.amountGenerared == FP.amount || block.timestamp > FP.time, "Funds yet to mature");
         uint value = FP.amountGenerared;
         FP.amountGenerared = 0;
         FP.status = false;
@@ -103,8 +107,8 @@ contract Funder{
      */
     function withdrawPart(uint amount) external payable {
         FundProps storage FP = fundsprosps[msg.sender];
-        require(FP.status == true, "No request for fund made");
-        require(FP.amountGenerared  >= amount, "insufficient funds");
+        require(FP.status == true, "proposal has not been approved");
+        require(FP.amountGenerared == FP.amount || block.timestamp > FP.time, "Funds yet to mature");
         FP.amountGenerared -= amount;
         FP.amount -= amount;
         payable(msg.sender).transfer(amount);
@@ -140,6 +144,7 @@ contract Funder{
         props.Purpose = fundsprosps[beneficiary].Purpose;
         props.amount = fundsprosps[beneficiary].amount;
         props.amountGenerared = fundsprosps[beneficiary].amountGenerared;
+        props.time = fundsprosps[beneficiary].time;
         props.status = fundsprosps[beneficiary].status;
     }
    

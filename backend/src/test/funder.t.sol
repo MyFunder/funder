@@ -3,7 +3,7 @@ pragma solidity 0.8.10;
 
 import "../funder.sol";
 import "../funderGovToken.sol";
-import "../voting.sol";
+import "../governance.sol";
 import "forge-std/Test.sol";
 import "forge-std/Vm.sol";
 
