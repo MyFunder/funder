@@ -93,7 +93,7 @@ contract Funder{
     function withdrawAll() external payable{
         FundProps storage FP = fundsprosps[msg.sender];
         require(FP.status == true, "proposal has not been approved");
-        require(FP.amountGenerared == FP.amount || block.timestamp > FP.time, "Funds yet to mature");
+        require(FP.amountGenerared >= FP.amount || block.timestamp > FP.time, "Funds yet to mature");
         uint value = FP.amountGenerared;
         FP.amountGenerared = 0;
         FP.status = false;
@@ -108,7 +108,7 @@ contract Funder{
     function withdrawPart(uint amount) external payable {
         FundProps storage FP = fundsprosps[msg.sender];
         require(FP.status == true, "proposal has not been approved");
-        require(FP.amountGenerared == FP.amount || block.timestamp > FP.time, "Funds yet to mature");
+        require(FP.amountGenerared >= FP.amount || block.timestamp > FP.time, "Funds yet to mature");
         FP.amountGenerared -= amount;
         FP.amount -= amount;
         payable(msg.sender).transfer(amount);
