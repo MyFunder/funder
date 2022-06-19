@@ -67,12 +67,9 @@ function DonationDetail(props) {
     const signer = provider.getSigner();
     const FunderContractInstance = new Contract(FunderAddr, FunderAbi, signer);
 
-    const Donation = await FunderContractInstance.donateFunds(
-      props.address,
-      {
-        value: ethers.utils.parseEther(enteredAmount),
-      }
-    );
+    const Donation = await FunderContractInstance.donateFunds(props.address, {
+      value: ethers.utils.parseEther(enteredAmount),
+    });
 
     const receipt = await Donation.wait(1);
 
@@ -115,8 +112,8 @@ function DonationDetail(props) {
               type="date"
               min="1"
               ref={dateInputRef}
-            />
-          </div> */}
+            /> */}
+          </div>
           <div>
             {!submitting ? (
               <button
