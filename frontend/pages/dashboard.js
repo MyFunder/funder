@@ -19,15 +19,18 @@ function Dashboard() {
       return;
     }
     const signer = provider.getSigner();
-    // const customProvider = new ethers.providers.JsonRpcProvider(
-    //   process.env.ALCHEMY_URL
-    // );
+    const customProvider = new ethers.providers.JsonRpcProvider(
+      process.env.ALCHEMY_URL
+    );
     // await customProvider.ready;
-    const FunderContractInstance = new Contract(FunderAddr, FunderAbi, signer);
+    const FunderContractInstance = new Contract(
+      FunderAddr,
+      FunderAbi,
+      customProvider
+    );
     console.log(FunderContractInstance);
     const genAmount = await FunderContractInstance.checkBalanceOf(
-      wallet.address,
-      { gasPrice: ethers.utils.parseUnits("100", "gwei"), gasLimit: 1000000 }
+      wallet.address
     );
 
     console.log(genAmount);
