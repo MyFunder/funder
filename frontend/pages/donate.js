@@ -2,7 +2,6 @@ import { MongoClient } from "mongodb";
 import DonateList from "../components/Donate/DonateList";
 
 function Donate(props) {
- 
   return (
     <div>
       <DonateList donateData={props.donateData} />
@@ -30,6 +29,7 @@ export async function getStaticProps() {
         desc: donate.desc,
         period: donate.period,
         amount: donate.amount,
+        address: donate.address,
       })),
     },
     revalidate: 1,

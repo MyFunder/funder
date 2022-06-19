@@ -5,7 +5,6 @@ import { Web3Context } from "../contexts/Web3Context";
 import { Contract, ethers } from "ethers";
 import { useRouter } from "next/router";
 
-
 function Create() {
   const { provider, connect, wallet } = useContext(Web3Context);
   const [submitting, setSubmitting] = useState(false);
@@ -26,8 +25,12 @@ function Create() {
         amount: Number(e.target.amount.value), // number
         image: e.target.image.value, // string
         desc: e.target.desc.value, // string
-        period: Number(e.target.period.value), // number
+        period: e.target.period.value, // number
       };
+
+      let myDate = data.period.split("-");
+      let newDate = new Date(myDate[2], myDate[1] - 1, myDate[0]);
+      const date = newDate.getTime();
       // console.log(data);
 
       setSubmitting(true);
@@ -41,23 +44,22 @@ function Create() {
 
       const createDonation = await FunderContractInstance.requestFund(
         data.name,
-        data.amount
+        data.amount,
+        date
       );
 
       const receipt = await createDonation.wait(1);
       // Get the eventsId
-      const eventsId = receipt?.events[0].args[3].toString();
+      // const eventsId = receipt?.events[0].args[3].toString();
       // push Id into the data
       let addAddr = {
-        id: eventsId,
         address: wallet.address,
+        date: date,
       };
 
       let pushIdData = { ...addAddr, ...data };
 
       console.log(pushIdData);
-
-      // console.log(`New Donation Id: ` + eventsId);
 
       //////////////////////////////////////////////////
       // Sending data to our backend

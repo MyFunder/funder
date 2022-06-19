@@ -41,7 +41,7 @@ function Donations(props) {
   };
   useEffect(() => {
     amountGenerated();
-  }, []);
+  });
   return (
     // <div className={styles.card}>
     <div className={styles.card__container}>
@@ -52,11 +52,11 @@ function Donations(props) {
         <div className={styles.card__amount}>
           <div className={styles.card__poly}>
             <Image src={matic} alt="matic" height={15} width={25} />
-            <p className={styles.card__totalPrice}>{amount} needed</p>
+            <p className={styles.card__totalPrice}>{amount} matic needed</p>
           </div>
           <div className={styles.card__poly}>
             <Image src={matic} alt="matic" height={15} width={25} />
-            <p className={styles.card__curPrice}>{amountGen} donated</p>
+            <p className={styles.card__curPrice}>{amountGen} matic donated</p>
           </div>
         </div>
         <div className={styles.card__head}>
