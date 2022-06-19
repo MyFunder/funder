@@ -22,7 +22,7 @@ function CreateForm({ onClickCreate, submitting, completed }) {
             type="text"
           />
           <label className={styles.form__label} htmlFor="amount">
-            Amount
+            Amount(matic)
           </label>
           <input
             className={styles.form__input}
@@ -30,7 +30,6 @@ function CreateForm({ onClickCreate, submitting, completed }) {
             name="amount"
             id="amount"
             type="number"
-            min="1"
           />
 
           <label className={styles.form__label} htmlFor="image">
@@ -56,7 +55,7 @@ function CreateForm({ onClickCreate, submitting, completed }) {
           />
 
           <label className={styles.form__label} htmlFor="period">
-            Period
+            Due Date
           </label>
           <input
             className={styles.form__input}

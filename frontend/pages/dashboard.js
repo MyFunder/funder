@@ -1,5 +1,3 @@
-import React from "react";
-
 import { useContext, useState, useRef, useEffect } from "react";
 import { FunderAddr, FunderAbi } from "../constants";
 import { Web3Context } from "../contexts/Web3Context";
@@ -13,12 +11,12 @@ function Dashboard() {
 
   const onClickWithdrawAll = async () => {
     // const provider = new ethers.providers.Web3Provider(window.ethereum);
-    if (!provider) {
-      alert("connect wallet to mumbai network and try again");
-      await connect();
-      return;
-    }
-    const signer = provider.getSigner();
+    // if (!provider) {
+    //   alert("connect wallet to mumbai network and try again");
+    //   await connect();
+    //   return;
+    // }
+    // const signer = provider.getSigner();
     const customProvider = new ethers.providers.JsonRpcProvider(
       process.env.ALCHEMY_URL
     );
@@ -30,7 +28,7 @@ function Dashboard() {
     );
     console.log(FunderContractInstance);
     const genAmount = await FunderContractInstance.checkBalanceOf(
-      wallet.address
+      "0x9268d03EfF4A9A595ef619764AFCB9976c0375df"
     );
 
     console.log(genAmount);
