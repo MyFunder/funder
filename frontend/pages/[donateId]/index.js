@@ -59,6 +59,7 @@ export async function getStaticProps(context) {
         desc: selectedDonateData.desc,
         period: selectedDonateData.period,
         amount: selectedDonateData.amount,
+        address: selectedDonateData.address,
       },
     },
   };

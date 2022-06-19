@@ -21,6 +21,7 @@ function DonateList(props) {
             desc={donate.desc}
             period={donate.period}
             amount={donate.amount}
+            address={donate.address}
           />
         ))}
       </div>

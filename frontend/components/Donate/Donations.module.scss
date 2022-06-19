@@ -39,6 +39,11 @@
     justify-content: space-between;
     font-size: 1.3rem;
   }
+  &__poly {
+    margin-left: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+  }
 
   &__totalPrice {
     color: $color-grey;

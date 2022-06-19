@@ -40,10 +40,16 @@
   }
 
   &__price {
+    font-size: 1.4rem;
     display: flex;
-    font-size: 1.3rem;
     justify-content: space-between;
     margin-bottom: 1rem;
+  }
+
+  &__poly {
+    margin-left: 0.4rem;
+    display: flex;
+    justify-content: space-between;
   }
 
   &__totalPrice {
