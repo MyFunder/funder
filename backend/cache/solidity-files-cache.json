@@ -421,8 +421,8 @@
       "artifacts": {}
     },
     "/home/iwura/Desktop/funder/backend/src/funder.sol": {
-      "lastModificationDate": 1655598353482,
-      "contentHash": "eb2e67e6faeb9b8a81dbeaaf0e46ca0b",
+      "lastModificationDate": 1655634342821,
+      "contentHash": "6e00ff8a018d27bd826b3cf629e124cc",
       "sourceName": "src/funder.sol",
       "solcConfig": {
         "settings": {
@@ -503,8 +503,8 @@
       "artifacts": {}
     },
     "/home/iwura/Desktop/funder/backend/src/governance.sol": {
-      "lastModificationDate": 1655597797039,
-      "contentHash": "07591832a57d11a25914019ffec1c22a",
+      "lastModificationDate": 1655635844992,
+      "contentHash": "9dc60419c50f32691329a5cf9db086db",
       "sourceName": "src/governance.sol",
       "solcConfig": {
         "settings": {
