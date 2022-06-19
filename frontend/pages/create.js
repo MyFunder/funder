@@ -48,11 +48,12 @@ function Create() {
       // // Get the eventsId
       // const eventsId = receipt?.events[0].args[3].toString();
       // push Id into the data
-      let id = {
+      let addAddr = {
         id: "2",
+        address: wallet.address,
       };
 
-      let pushIdData = { ...id, ...data };
+      let pushIdData = { ...addAddr, ...data };
 
       console.log(pushIdData);
 

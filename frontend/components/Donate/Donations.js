@@ -1,6 +1,5 @@
 import { useRouter } from "next/router";
-import React, { Fragment } from "react";
-import Data from "./DonateData";
+
 import styles from "./Donations.module.scss";
 import btn from "../../styles/button.module.scss";
 
