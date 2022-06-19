@@ -16,11 +16,6 @@
 						"internalType": "string",
 						"name": "symbol_",
 						"type": "string"
-					},
-					{
-						"internalType": "contract Voting",
-						"name": "_vote",
-						"type": "address"
 					}
 				],
 				"stateMutability": "nonpayable",
@@ -205,24 +200,6 @@
 				"type": "function"
 			},
 			{
-				"inputs": [
-					{
-						"internalType": "uint256",
-						"name": "_amount",
-						"type": "uint256"
-					},
-					{
-						"internalType": "address",
-						"name": "castVote",
-						"type": "address"
-					}
-				],
-				"name": "lockToken",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
 				"inputs": [],
 				"name": "name",
 				"outputs": [
@@ -311,19 +288,6 @@
 						"type": "bool"
 					}
 				],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "castVote",
-						"type": "address"
-					}
-				],
-				"name": "unLockToken",
-				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
 			}
@@ -424,28 +388,12 @@
 				"dweb:/ipfs/QmRK2Y5Yc6BK7tGKkgsgn3aJEQGi5aakeSPZvS65PV8Xp3"
 			]
 		},
-		"backend/src/funder.sol": {
-			"keccak256": "0xd6b1b6cc05dc38f8a59680684185fd718438a117ac760d72207ca07a26d8ec19",
-			"license": "UNLICENSED",
-			"urls": [
-				"bzz-raw://a24b82df341b9e604e188806aebf209403b63434f9edd1defb9d3cd301a011a9",
-				"dweb:/ipfs/QmSKFjVYWiF6uBgnUrFXHhHaqHqmCyZDHhSz5YZhWbFtVi"
-			]
-		},
 		"backend/src/funderGovToken.sol": {
-			"keccak256": "0xa8cbf3306e16eede8c22cfaf6291148e6c1cc6fb23467762cb279ebe6de9c5d4",
+			"keccak256": "0x952cc877742bb77ab5c3797cbdcdc6f498e89baae8110a3b8da8f2a15bee150c",
 			"license": "UNLICENSED",
 			"urls": [
-				"bzz-raw://e00cc7d6adf1e41780f97125927eeeb21974704a7705b9c74a6aab82f58135e4",
-				"dweb:/ipfs/QmNiYwrQEbSATGjnvo38TC99t24dJ3h5x5nNv8MSdvXRA3"
-			]
-		},
-		"backend/src/voting.sol": {
-			"keccak256": "0xaaf58c27d80c10a6ab44001d4500145a465edd5ca9577dd44254bdff756bab6e",
-			"license": "UNLICENSED",
-			"urls": [
-				"bzz-raw://aff9788a6897139bc6dbe305c3fb5f94ef2cf62c23e46018812c3cb3a1dd09a3",
-				"dweb:/ipfs/QmR1qydJa5DaX8w3ztcztf1dZ44UbQ959gh2zDUoGtYYGs"
+				"bzz-raw://a602a7f360bc4cc5c9c01043387bc730b0e5ea38052c110c48ce2483d1be11e2",
+				"dweb:/ipfs/QmQzHbdWcK9Cc9aHR6SUHitxdQBvFR3BnThVZYX15B9QFA"
 			]
 		}
 	},

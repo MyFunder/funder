@@ -8,13 +8,8 @@
 			{
 				"inputs": [
 					{
-						"internalType": "address",
-						"name": "_token",
-						"type": "address"
-					},
-					{
-						"internalType": "address",
-						"name": "_govVoting",
+						"internalType": "contract Voting",
+						"name": "_vote",
 						"type": "address"
 					}
 				],
@@ -167,6 +162,11 @@
 						"type": "uint256"
 					},
 					{
+						"internalType": "uint256",
+						"name": "time",
+						"type": "uint256"
+					},
+					{
 						"internalType": "bool",
 						"name": "status",
 						"type": "bool"
@@ -200,6 +200,11 @@
 							{
 								"internalType": "uint256",
 								"name": "amountGenerared",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "time",
 								"type": "uint256"
 							},
 							{
@@ -265,6 +270,11 @@
 						"internalType": "uint256",
 						"name": "_amount",
 						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_time",
+						"type": "uint256"
 					}
 				],
 				"name": "requestFund",
@@ -281,13 +291,7 @@
 					}
 				],
 				"name": "setStatus",
-				"outputs": [
-					{
-						"internalType": "bool",
-						"name": "",
-						"type": "bool"
-					}
-				],
+				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
 			},
@@ -325,7 +329,7 @@
 						"beneficiary": "The spender of the funds being donated"
 					}
 				},
-				"requestFund(string,uint256)": {
+				"requestFund(string,uint256,uint256)": {
 					"params": {
 						"_amount": "The amount needed to fulfill the purpose",
 						"_purpose": "The Purpose of the fund requested for"
@@ -348,7 +352,7 @@
 				"donateFunds(address)": {
 					"notice": "Donate Funds for a beneficiary"
 				},
-				"requestFund(string,uint256)": {
+				"requestFund(string,uint256,uint256)": {
 					"notice": "Construct the FundsProperty for a benficiary"
 				},
 				"withdrawAll()": {
@@ -377,12 +381,60 @@
 		"remappings": []
 	},
 	"sources": {
+		"@openzeppelin/contracts/interfaces/IERC20Metadata.sol": {
+			"keccak256": "0x687142c633b33037c3137b6bfeef848a44eb1ef83fb5fdb59a3affdf28a46516",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://0d26b5d0495ffb4c36b1abdf003f43ab478c324752ce60847af8019bad5a3ad0",
+				"dweb:/ipfs/QmQGcXZcq7eBrZUyxLbHFkBFWCyMwFonvJwLRSsL82dbWx"
+			]
+		},
+		"@openzeppelin/contracts/token/ERC20/IERC20.sol": {
+			"keccak256": "0x9750c6b834f7b43000631af5cc30001c5f547b3ceb3635488f140f60e897ea6b",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://5a7d5b1ef5d8d5889ad2ed89d8619c09383b80b72ab226e0fe7bde1636481e34",
+				"dweb:/ipfs/QmebXWgtEfumQGBdVeM6c71McLixYXQP5Bk6kKXuoY4Bmr"
+			]
+		},
+		"@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol": {
+			"keccak256": "0x8de418a5503946cabe331f35fe242d3201a73f67f77aaeb7110acb1f30423aca",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://5a376d3dda2cb70536c0a45c208b29b34ac560c4cb4f513a42079f96ba47d2dd",
+				"dweb:/ipfs/QmZQg6gn1sUpM8wHzwNvSnihumUCAhxD119MpXeKp8B9s8"
+			]
+		},
+		"@openzeppelin/contracts/utils/Context.sol": {
+			"keccak256": "0xe2e337e6dde9ef6b680e07338c493ebea1b5fd09b43424112868e9cc1706bca7",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://6df0ddf21ce9f58271bdfaa85cde98b200ef242a05a3f85c2bc10a8294800a92",
+				"dweb:/ipfs/QmRK2Y5Yc6BK7tGKkgsgn3aJEQGi5aakeSPZvS65PV8Xp3"
+			]
+		},
 		"backend/src/funder.sol": {
-			"keccak256": "0xd6b1b6cc05dc38f8a59680684185fd718438a117ac760d72207ca07a26d8ec19",
+			"keccak256": "0xc0b0c7b3db0473624f5634d7faa8af0c1da1a26deed059a952ecb8a3ea1ceaa6",
 			"license": "UNLICENSED",
 			"urls": [
-				"bzz-raw://a24b82df341b9e604e188806aebf209403b63434f9edd1defb9d3cd301a011a9",
-				"dweb:/ipfs/QmSKFjVYWiF6uBgnUrFXHhHaqHqmCyZDHhSz5YZhWbFtVi"
+				"bzz-raw://430afee409f8bd2ef3a7b05b57a006dd6fa0678352a138a7e5775ff46e3e27ed",
+				"dweb:/ipfs/Qmca8yMf3WccJVcgFborBFthDBMpvus6hS9LbN9LRkbCW9"
+			]
+		},
+		"backend/src/funderGovToken.sol": {
+			"keccak256": "0x952cc877742bb77ab5c3797cbdcdc6f498e89baae8110a3b8da8f2a15bee150c",
+			"license": "UNLICENSED",
+			"urls": [
+				"bzz-raw://a602a7f360bc4cc5c9c01043387bc730b0e5ea38052c110c48ce2483d1be11e2",
+				"dweb:/ipfs/QmQzHbdWcK9Cc9aHR6SUHitxdQBvFR3BnThVZYX15B9QFA"
+			]
+		},
+		"backend/src/governance.sol": {
+			"keccak256": "0x6722d2f6495e61a4e4bcf4708c379a88a31de310bf54223773b32ac5f1b76bb0",
+			"license": "UNLICENSED",
+			"urls": [
+				"bzz-raw://e877c406f703ef8711913295566282bbccf2785605f91622a74952a8f71eeb4d",
+				"dweb:/ipfs/QmfBRazyPcQFSWUHLQKiEoYkr94Fh485pVFiQXoMyr9npJ"
 			]
 		}
 	},

@@ -403,10 +403,17 @@
       "versionRequirement": "=0.8.10",
       "artifacts": {}
     },
+<<<<<<< HEAD
     "C:\\Users\\great\\Desktop\\Web3Bridge BlockChain Dev\\Funder-CrowdFundMe\\funder\\backend\\src\\funder.sol": {
       "lastModificationDate": 1655504428696,
       "contentHash": "de6417309dc08f9df4de764bdd85bd5f",
       "sourceName": "src\\funder.sol",
+=======
+    "/home/iwura/Desktop/funder/backend/src/funder.sol": {
+      "lastModificationDate": 1655634342821,
+      "contentHash": "6e00ff8a018d27bd826b3cf629e124cc",
+      "sourceName": "src/funder.sol",
+>>>>>>> dcbb8a0943c74ed9decd4a189a75f35e5a11b372
       "solcConfig": {
         "settings": {
           "optimizer": {
@@ -432,7 +439,14 @@
           "evmVersion": "london"
         }
       },
-      "imports": [],
+      "imports": [
+        "lib/openzeppelin-contracts/contracts/interfaces/IERC20Metadata.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Metadata.sol",
+        "lib/openzeppelin-contracts/contracts/utils/Context.sol",
+        "src/funderGovToken.sol",
+        "src/governance.sol"
+      ],
       "versionRequirement": "=0.8.10",
       "artifacts": {}
     },
@@ -474,10 +488,17 @@
       "versionRequirement": "=0.8.10",
       "artifacts": {}
     },
+<<<<<<< HEAD
     "C:\\Users\\great\\Desktop\\Web3Bridge BlockChain Dev\\Funder-CrowdFundMe\\funder\\backend\\src\\test\\Contract.t.sol": {
       "lastModificationDate": 1654901262421,
       "contentHash": "9ab032b424f9cf2f93143bdb92591b45",
       "sourceName": "src\\test\\Contract.t.sol",
+=======
+    "/home/iwura/Desktop/funder/backend/src/governance.sol": {
+      "lastModificationDate": 1655635844992,
+      "contentHash": "9dc60419c50f32691329a5cf9db086db",
+      "sourceName": "src/governance.sol",
+>>>>>>> dcbb8a0943c74ed9decd4a189a75f35e5a11b372
       "solcConfig": {
         "settings": {
           "optimizer": {
@@ -503,9 +524,16 @@
           "evmVersion": "london"
         }
       },
-      "imports": [],
+      "imports": [
+        "lib/openzeppelin-contracts/contracts/interfaces/IERC20Metadata.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Metadata.sol",
+        "lib/openzeppelin-contracts/contracts/utils/Context.sol",
+        "src/funderGovToken.sol"
+      ],
       "versionRequirement": "=0.8.10",
       "artifacts": {
+<<<<<<< HEAD
         "ContractTest": {
           "0.8.10+commit.fc410830.Windows.msvc": "Contract.t.sol\\ContractTest.json"
         }
@@ -515,6 +543,17 @@
       "lastModificationDate": 1655504428700,
       "contentHash": "7f411a69932bba4549835cbfd77b8b35",
       "sourceName": "src\\test\\funder.t.sol",
+=======
+        "Voting": {
+          "0.8.10+commit.fc410830.Linux.gcc": "governance.sol/Voting.json"
+        }
+      }
+    },
+    "/home/iwura/Desktop/funder/backend/src/test/Contract.t.sol": {
+      "lastModificationDate": 1655322956940,
+      "contentHash": "7016738fe305fd90c36ea69a5cb2a78c",
+      "sourceName": "src/test/Contract.t.sol",
+>>>>>>> dcbb8a0943c74ed9decd4a189a75f35e5a11b372
       "solcConfig": {
         "settings": {
           "optimizer": {
@@ -540,6 +579,7 @@
           "evmVersion": "london"
         }
       },
+<<<<<<< HEAD
       "imports": [
         "lib\\forge-std\\src\\Script.sol",
         "lib\\forge-std\\src/Test.sol",
@@ -565,6 +605,20 @@
       "lastModificationDate": 1655504428703,
       "contentHash": "b1095905629b288028cbbdf7c9cf4030",
       "sourceName": "src\\voting.sol",
+=======
+      "imports": [],
+      "versionRequirement": "=0.8.10",
+      "artifacts": {
+        "ContractTest": {
+          "0.8.10+commit.fc410830.Linux.gcc": "Contract.t.sol/ContractTest.json"
+        }
+      }
+    },
+    "/home/iwura/Desktop/funder/backend/src/test/funder.t.sol": {
+      "lastModificationDate": 1655597241274,
+      "contentHash": "16a7f51635e9bff307f95af37b8737a6",
+      "sourceName": "src/test/funder.t.sol",
+>>>>>>> dcbb8a0943c74ed9decd4a189a75f35e5a11b372
       "solcConfig": {
         "settings": {
           "optimizer": {
@@ -591,15 +645,34 @@
         }
       },
       "imports": [
+        "lib/forge-std/lib/ds-test/src/test.sol",
+        "lib/forge-std/src/Script.sol",
+        "lib/forge-std/src/Test.sol",
+        "lib/forge-std/src/Vm.sol",
+        "lib/forge-std/src/console.sol",
+        "lib/forge-std/src/console2.sol",
         "lib/openzeppelin-contracts/contracts/interfaces/IERC20Metadata.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
         "lib\\openzeppelin-contracts\\contracts\\token\\ERC20\\extensions\\IERC20Metadata.sol",
         "lib/openzeppelin-contracts/contracts/utils/Context.sol",
+<<<<<<< HEAD
         "src\\funder.sol",
         "src\\funderGovToken.sol"
       ],
       "versionRequirement": "=0.8.10",
       "artifacts": {}
+=======
+        "src/funder.sol",
+        "src/funderGovToken.sol",
+        "src/governance.sol"
+      ],
+      "versionRequirement": "=0.8.10",
+      "artifacts": {
+        "funderTest": {
+          "0.8.10+commit.fc410830.Linux.gcc": "funder.t.sol/funderTest.json"
+        }
+      }
+>>>>>>> dcbb8a0943c74ed9decd4a189a75f35e5a11b372
     }
   }
 }
