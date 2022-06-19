@@ -10,6 +10,7 @@ function DonationDetails(props) {
         desc={props.donateData.desc}
         amount={props.donateData.amount}
         period={props.donateData.period}
+        address={props.donateData.address}
       />
     </div>
   );

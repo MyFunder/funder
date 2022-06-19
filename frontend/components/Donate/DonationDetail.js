@@ -68,7 +68,7 @@ function DonationDetail(props) {
     const FunderContractInstance = new Contract(FunderAddr, FunderAbi, signer);
 
     const Donation = await FunderContractInstance.donateFunds(
-      "0x9268d03EfF4A9A595ef619764AFCB9976c0375df",
+      props.address,
       {
         value: ethers.utils.parseEther(enteredAmount),
       }
@@ -107,7 +107,7 @@ function DonationDetail(props) {
               ref={amountInputRef}
             />
 
-            <input
+            {/* <input
               className={styles.form__input}
               required
               name="date"
@@ -116,12 +116,12 @@ function DonationDetail(props) {
               min="1"
               ref={dateInputRef}
             />
-          </div>
+          </div> */}
           <div>
             {!submitting ? (
               <button
                 className={`${btn.btn} ${btn.btn__animated} ${btn.btn__primary} ${styles.detail__btn}`}
-                onClick={amountGenerated}
+                onClick={onClickDonate}
               >
                 Donate
               </button>

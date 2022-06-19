@@ -11,24 +11,20 @@ function Dashboard() {
 
   const onClickWithdrawAll = async () => {
     // const provider = new ethers.providers.Web3Provider(window.ethereum);
-    // if (!provider) {
-    //   alert("connect wallet to mumbai network and try again");
-    //   await connect();
-    //   return;
-    // }
-    // const signer = provider.getSigner();
-    const customProvider = new ethers.providers.JsonRpcProvider(
+    if (!provider) {
+      alert("connect wallet to mumbai network and try again");
+      await connect();
+      return;
+    }
+    const signer = provider.getSigner();
+    const customProvider = new ethers.providers.AlchemyProvider(
       process.env.ALCHEMY_URL
     );
     // await customProvider.ready;
-    const FunderContractInstance = new Contract(
-      FunderAddr,
-      FunderAbi,
-      customProvider
-    );
+    const FunderContractInstance = new Contract(FunderAddr, FunderAbi, signer);
     console.log(FunderContractInstance);
     const genAmount = await FunderContractInstance.checkBalanceOf(
-      "0x9268d03EfF4A9A595ef619764AFCB9976c0375df"
+      wallet.address
     );
 
     console.log(genAmount);
