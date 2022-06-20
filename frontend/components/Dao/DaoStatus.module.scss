@@ -1,0 +1,29 @@
+.status {
+  margin: 8rem auto;
+  width: 90%;
+  min-height: 60rem;
+
+  display: flex;
+  flex-direction: column;
+
+  label {
+    color: black;
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 2rem 0;
+  }
+
+  input {
+    font-family: inherit;
+    margin: 0.5rem 0;
+    height: 4rem;
+    padding: 2rem;
+  }
+
+  button {
+    font-family: inherit;
+    padding: 2rem;
+    cursor: pointer;
+    margin: 0.5rem 0;
+  }
+}

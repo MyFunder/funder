@@ -11,11 +11,11 @@ function NavBar() {
       <Link href="./donate">
         <h4 className={styles.items}>Donate</h4>
       </Link>
-      <Link href="./donate">
-        <h4 className={styles.items}>Trending</h4>
-      </Link>
       <Link href="./create">
         <h4 className={styles.items}>Create Fundraiser</h4>
+      </Link>
+      <Link href="./dao">
+        <h4 className={styles.items}>Dao</h4>
       </Link>
     </div>
   );
