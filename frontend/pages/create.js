@@ -29,9 +29,9 @@ function Create() {
       };
 
       let myDate = data.period.split("-");
-      let newDate = new Date(myDate[2], myDate[1] - 1, myDate[0]);
+      let newDate = new Date(myDate[0], myDate[1] - 1, myDate[2]);
       const date = newDate.getTime();
-      // console.log(data);
+      console.log(date);
 
       setSubmitting(true);
 
