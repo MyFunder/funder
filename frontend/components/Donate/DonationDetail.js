@@ -7,7 +7,7 @@ import { Web3Context } from "../../contexts/Web3Context";
 import { ethers, utils } from "ethers";
 
 function DonationDetail(props) {
-  const { provider, customContractInstance, contractInstance } =
+  const { provider, connect, customContractInstance, contractInstance } =
     useContext(Web3Context);
   const [submitting, setSubmitting] = useState(false);
   const [amountGen, setAmountGen] = useState();

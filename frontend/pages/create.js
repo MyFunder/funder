@@ -6,7 +6,7 @@ import { Contract, ethers } from "ethers";
 import { useRouter } from "next/router";
 
 function Create() {
-  const { wallet, contractInstance, provider } = useContext(Web3Context);
+  const { wallet, connect, contractInstance, provider } = useContext(Web3Context);
   const [submitting, setSubmitting] = useState(false);
   const [completed, setCompleted] = useState(false);
 

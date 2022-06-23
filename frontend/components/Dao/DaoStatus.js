@@ -7,7 +7,7 @@ import { Web3Context } from "../../contexts/Web3Context";
 import { Contract, ethers, utils } from "ethers";
 
 function DaoStatus() {
-  const { contractInstance, provider } = useContext(Web3Context);
+  const { contractInstance, provider, connect } = useContext(Web3Context);
   const [submitting, setSubmitting] = useState(false);
   const statusInputRef = useRef();
 
