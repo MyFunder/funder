@@ -6,7 +6,7 @@ import { Contract, ethers } from "ethers";
 import { useRouter } from "next/router";
 
 function Create() {
-  const { provider, connect, wallet } = useContext(Web3Context);
+  const { wallet, contractInstance, provider } = useContext(Web3Context);
   const [submitting, setSubmitting] = useState(false);
   const [completed, setCompleted] = useState(false);
 
@@ -20,6 +20,7 @@ function Create() {
         await connect();
         return;
       }
+
       let data = {
         name: e.target.name.value, // string
         amount: Number(e.target.amount.value), // number
@@ -31,26 +32,16 @@ function Create() {
       let myDate = data.period.split("-");
       let newDate = new Date(myDate[0], myDate[1] - 1, myDate[2]);
       const date = newDate.getTime();
-      console.log(date);
 
       setSubmitting(true);
 
-      const signer = provider.getSigner();
-      const FunderContractInstance = new Contract(
-        FunderAddr,
-        FunderAbi,
-        signer
-      );
-
-      const createDonation = await FunderContractInstance.requestFund(
+      const createDonation = await contractInstance.requestFund(
         data.name,
         data.amount,
         date
       );
 
       const receipt = await createDonation.wait(1);
-      // Get the eventsId
-      // const eventsId = receipt?.events[0].args[3].toString();
       // push Id into the data
       let addAddr = {
         address: wallet.address,

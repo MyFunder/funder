@@ -7,7 +7,7 @@ import { Web3Context } from "../../contexts/Web3Context";
 import { Contract, ethers, utils } from "ethers";
 
 function DaoStatus() {
-  const { provider, connect } = useContext(Web3Context);
+  const { contractInstance, provider } = useContext(Web3Context);
   const [submitting, setSubmitting] = useState(false);
   const statusInputRef = useRef();
 
@@ -23,10 +23,7 @@ function DaoStatus() {
     setSubmitting(true);
     const enteredAddr = statusInputRef.current.value;
 
-    const signer = provider.getSigner();
-    const FunderContractInstance = new Contract(FunderAddr, FunderAbi, signer);
-
-    const setStatusTx = await FunderContractInstance.setStatus(
+    const setStatusTx = await contractInstance.setStatus(
       enteredAddr.toString()
     );
     const receipt = await setStatusTx.wait(1);

@@ -3,61 +3,34 @@ import btn from "../../styles/button.module.scss";
 import Image from "next/image";
 import matic from "../../public/polygon.png";
 import { useContext, useState, useRef, useEffect } from "react";
-import { FunderAddr, FunderAbi } from "../../constants";
 import { Web3Context } from "../../contexts/Web3Context";
-import { Contract, ethers, utils } from "ethers";
+import { ethers, utils } from "ethers";
 
 function DonationDetail(props) {
-  const { provider, connect } = useContext(Web3Context);
+  const { provider, customContractInstance, contractInstance } =
+    useContext(Web3Context);
   const [submitting, setSubmitting] = useState(false);
   const [amountGen, setAmountGen] = useState();
   const [status, setStatus] = useState();
   const amountInputRef = useRef();
-  const dateInputRef = useRef();
 
   const beneficiaryStatus = async () => {
-    if (!provider) {
-      alert("connect wallet to mumbai network and try again");
-      await connect();
-      return;
-    }
-    // const customProvider = new ethers.providers.JsonRpcProvider(
-    //   process.env.ALCHEMY_URL
-    //   );
-    const signer = provider.getSigner();
-    const FunderContractInstance = new Contract(FunderAddr, FunderAbi, signer);
-
-    const status = await FunderContractInstance.getBeneficiaryStatus(
+    const status = await customContractInstance.getBeneficiaryStatus(
       props.address
     );
-
-    console.log(status);
     setStatus(status);
   };
 
   const amountGenerated = async () => {
-    if (!provider) {
-      alert("connect wallet to mumbai network and try again");
-      await connect();
-      return;
-    }
-    // const customProvider = new ethers.providers.JsonRpcProvider(
-    //   process.env.ALCHEMY_URL
-    //   );
-    const signer = provider.getSigner();
-    const FunderContractInstance = new Contract(FunderAddr, FunderAbi, signer);
-
-    const genAmount = await FunderContractInstance.checkBalanceOf(
+    const genAmount = await customContractInstance.checkBalanceOf(
       props.address
     );
-
     setAmountGen(utils.formatUnits(genAmount, 18));
   };
 
   const onClickDonate = async (e) => {
     e.preventDefault();
 
-    console.log(amountInputRef.current.value);
     if (!provider) {
       alert("connect wallet to mumbai network and try again");
       await connect();
@@ -67,10 +40,7 @@ function DonationDetail(props) {
     setSubmitting(true);
     const enteredAmount = amountInputRef.current.value;
 
-    const signer = provider.getSigner();
-    const FunderContractInstance = new Contract(FunderAddr, FunderAbi, signer);
-
-    const Donation = await FunderContractInstance.donateFunds(props.address, {
+    const Donation = await contractInstance.donateFunds(props.address, {
       value: ethers.utils.parseEther(enteredAmount.toString()),
     });
     const receipt = await Donation.wait(1);
@@ -98,7 +68,7 @@ function DonationDetail(props) {
               <p className={styles.detail__totalPrice}>{props.amount} needed</p>
             </div>
             <div className={styles.detail__poly}>
-              <Image src={matic} alt="matic" height={15} width={25} />
+              <Image src={matic} alt="matic" height={15} width={20} />
               <p className={styles.detail__curPrice}>{amountGen} donated</p>
             </div>
           </div>
@@ -115,19 +85,10 @@ function DonationDetail(props) {
               required
               type="number"
               id="amount"
+              min="0"
               placeholder="Input amount"
               ref={amountInputRef}
             />
-
-            {/* <input
-              className={styles.form__input}
-              required
-              name="date"
-              id="date"
-              type="date"
-              min="1"
-              ref={dateInputRef}
-            /> */}
           </div>
           {status ? (
             <div>

@@ -1,11 +1,13 @@
 import { useEffect, createContext, useState } from "react";
 import Web3Modal, { CHAIN_DATA_LIST } from "web3modal";
-import { ethers } from "ethers";
+import { Contract, ethers } from "ethers";
 import {
   DEFAULT_CHAIN_ID,
   providerOptions,
 } from "../components/connector/Connectors";
-import { DEFAULT_CHAINS } from "..//components/connector/Blockchain";
+import { DEFAULT_CHAINS } from "../components/connector/Blockchain";
+
+import { FunderAddr, FunderAbi } from "../constants";
 
 export const Web3Context = createContext();
 
@@ -188,6 +190,29 @@ export const Web3Provider = (props) => {
     onDisconnect();
   };
   /////////////////////////////////////////////////////////
+  // Custom contract Instance
+  const customProvider = new ethers.providers.JsonRpcProvider(
+    "https://matic-mumbai.chainstacklabs.com"
+  );
+
+  const customContractInstance = new Contract(
+    FunderAddr,
+    FunderAbi,
+    customProvider
+  );
+
+  // Contract Instance
+
+  const signer = provider?.getSigner();
+  const contractInstance = new Contract(FunderAddr, FunderAbi, signer);
+
+  const checkConnection = async () => {
+    if (!provider) {
+      alert("connect wallet to mumbai network and try again");
+      await connect();
+      return;
+    }
+  };
 
   return (
     <Web3Context.Provider
@@ -197,6 +222,9 @@ export const Web3Provider = (props) => {
         connect,
         connectTo,
         disconnect,
+        customContractInstance,
+        contractInstance,
+        checkConnection,
       }}
     >
       {children}

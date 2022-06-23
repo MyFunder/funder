@@ -4,13 +4,12 @@ import styles from "./Donations.module.scss";
 import btn from "../../styles/button.module.scss";
 import Image from "next/image";
 import matic from "../../public/polygon.png";
-import { useContext, useState, useRef, useEffect } from "react";
-import { FunderAddr, FunderAbi } from "../../constants";
+import { useContext, useState, useEffect } from "react";
 import { Web3Context } from "../../contexts/Web3Context";
-import { Contract, ethers, utils } from "ethers";
+import { utils } from "ethers";
 
 function Donations(props) {
-  const { provider, connect, wallet } = useContext(Web3Context);
+  const { customContractInstance } = useContext(Web3Context);
   const [amountGen, setAmountGen] = useState();
   const router = useRouter();
   const { id, name, image, desc, address, period, amount } = props;
@@ -19,26 +18,12 @@ function Donations(props) {
   }
 
   const amountGenerated = async () => {
-    if (!provider) {
-      alert("connect wallet to mumbai network and try again");
-      await connect();
-      return;
-    }
-    // const customProvider = new ethers.providers.JsonRpcProvider(
-    //   process.env.ALCHEMY_URL
-    //   );
-    const signer = provider.getSigner();
-    const FunderContractInstance = new Contract(FunderAddr, FunderAbi, signer);
-
-    const genAmount = await FunderContractInstance.checkBalanceOf(
+    const genAmount = await customContractInstance.checkBalanceOf(
       props.address
     );
-
-    // const receipt = await genAmount.wait();
     setAmountGen(utils.formatUnits(genAmount, 18));
-    // console.log(utils.formatUnits(genAmount, 18));
-    // console.log(receipt);
   };
+
   useEffect(() => {
     amountGenerated();
   });
@@ -51,11 +36,15 @@ function Donations(props) {
       <div className={styles.card__content}>
         <div className={styles.card__amount}>
           <div className={styles.card__poly}>
-            <Image src={matic} alt="matic" height={15} width={25} />
+            <div className={styles.card__polyIcon}>
+              <Image src={matic} alt="matic" height={20} width={20} />
+            </div>
             <p className={styles.card__totalPrice}>{amount} matic needed</p>
           </div>
           <div className={styles.card__poly}>
-            <Image src={matic} alt="matic" height={15} width={25} />
+            <div className={styles.card__polyIcon}>
+              <Image src={matic} alt="matic" height={20} width={20} />
+            </div>
             <p className={styles.card__curPrice}>{amountGen} matic donated</p>
           </div>
         </div>
