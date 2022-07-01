@@ -11,7 +11,6 @@ function DonateList(props) {
         </h2>
       </div>
       <div className={styles.list}>
-        {/* <div className={styles.list__detail}>  */}
         {props.donateData.map((donate) => (
           <Donations
             key={donate.id}
@@ -26,7 +25,6 @@ function DonateList(props) {
         ))}
       </div>
     </div>
-    //  </div>
   );
 }
 

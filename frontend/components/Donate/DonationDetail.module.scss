@@ -103,3 +103,11 @@
     // font-weight: 700;
   }
 }
+
+@media only screen and (max-width: 400px) {
+  .detail {
+    &__card {
+      width: 100%;
+    }
+  }
+}

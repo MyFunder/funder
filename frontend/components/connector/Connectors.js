@@ -8,11 +8,9 @@ export const DEFAULT_CHAIN_ID = 80001;
 
 // These options are used to construct the UAuthSPA instance.
 export const uauthOptions = {
-  clientID: "client_id",
-  redirectUri: "",
-
-  // Must include both the openid and wallet scopes.
-  scope: "openid wallet",
+  clientID: "fc231b70-0a18-4ab5-9c5e-3b0ed7266143",
+  redirectUri: "https://funder-beige.vercel.app",
+  scope: "openid wallet email:optional humanity_check:optional",
 };
 
 export const providerOptions = {

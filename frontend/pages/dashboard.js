@@ -1,36 +1,26 @@
-import { useContext, useState, useRef, useEffect } from "react";
-import { FunderAddr, FunderAbi } from "../constants";
+import { useContext, useState, useEffect } from "react";
+
 import { Web3Context } from "../contexts/Web3Context";
-import { Contract, ethers } from "ethers";
 
 function Dashboard() {
-  const { provider, connect, wallet } = useContext(Web3Context);
+  const { provider, customContractInstance, connect, wallet } =
+    useContext(Web3Context);
   const [submitting, setSubmitting] = useState(false);
 
   // check if user address has a fundraiser and == signer
 
   const onClickWithdrawAll = async () => {
-    // const provider = new ethers.providers.Web3Provider(window.ethereum);
     if (!provider) {
       alert("connect wallet to mumbai network and try again");
       await connect();
       return;
     }
-    const signer = provider.getSigner();
-    const customProvider = new ethers.providers.AlchemyProvider(
-      process.env.ALCHEMY_URL
-    );
-    // await customProvider.ready;
-    const FunderContractInstance = new Contract(FunderAddr, FunderAbi, signer);
-    console.log(FunderContractInstance);
-    const genAmount = await FunderContractInstance.checkBalanceOf(
+
+    const genAmount = await customContractInstance.checkBalanceOf(
       wallet.address
     );
 
-    console.log(genAmount);
-
-    // const receipt = await genAmount.wait();
-    // console.log(receipt);
+    console.log(Number(genAmount));
   };
   return (
     <div>
